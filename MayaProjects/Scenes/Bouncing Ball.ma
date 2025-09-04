@@ -1,6 +1,6 @@
 //Maya ASCII 2026 scene
 //Name: Bouncing Ball.ma
-//Last modified: Wed, Sep 03, 2025 10:24:47 PM
+//Last modified: Thu, Sep 04, 2025 02:47:27 PM
 //Codeset: UTF-8
 requires maya "2026";
 requires "mtoa" "5.5.3";
@@ -10,12 +10,12 @@ fileInfo "product" "Maya 2026";
 fileInfo "version" "2026";
 fileInfo "cutIdentifier" "202507081222-4d6919b75c";
 fileInfo "osv" "Mac OS X 15.6.1";
-fileInfo "UUID" "9FCA8149-5F43-650A-293C-7DA2C5E435C4";
+fileInfo "UUID" "671128F8-2441-CB5C-D71E-2CA4FC0BD225";
 createNode transform -s -n "persp";
 	rename -uid "4929199D-484D-B385-AB36-80A0C4875858";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -2.4986499340675667 24.239823589740809 37.618980592851258 ;
-	setAttr ".r" -type "double3" -32.738352729603783 -3.799999999999502 1.9922266493727663e-16 ;
+	setAttr ".t" -type "double3" -42.54533558471217 14.102211323674092 -0.1485118406542405 ;
+	setAttr ".r" -type "double3" -18.338352729598661 -90.199999999999378 -4.5799987413074647e-13 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "8AC30AA8-6D4B-B053-D93C-9C92A00BCAAF";
 	setAttr -k off ".v" no;
@@ -90,20 +90,20 @@ createNode mesh -n "pSphereShape1" -p "pSphere1";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "FDE2346A-AD4E-B962-E1ED-2EA33B1756CE";
+	rename -uid "B4B82705-E949-381D-5E9F-13AFADCFFA08";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "AA66EFA0-6F46-EE8C-59E3-3DBBA7BC06D3";
+	rename -uid "176856B5-F64E-7777-425A-168499859F95";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "356FAC2F-FC4E-F65B-A4FE-2CA2A5D4A089";
+	rename -uid "13CE3C93-304E-1D6B-F7EA-C292E0FEA2E5";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "2A8985A9-D240-2BEC-98B3-57B1666BC8AF";
+	rename -uid "F71792C7-E940-0705-DF52-BAAD95A19077";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "83D9134D-F54D-64B2-A825-A885F509C51B";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "1301F489-AA48-AFAB-EE4A-31983AAEE5FC";
+	rename -uid "EE8F4092-954C-DFB2-0842-298E62F4FDC0";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "2155A468-7046-0135-8095-EF8FEE2327F1";
 	setAttr ".g" yes;
@@ -113,57 +113,165 @@ createNode animCurveTL -n "pSphere1_translateX";
 	rename -uid "E9AF8E8E-B349-55A2-9C9E-63A64B89DE97";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 0 5 0 10 0 12 0 15 0 20 0;
+	setAttr -s 12 ".ktv[0:11]"  1 0 5 0 45 0 80 0 110 0 130 0 145 0 160 0
+		 180 0 210 0 230 0 270 0;
+	setAttr -s 12 ".kit[1:11]"  1 18 18 18 18 18 1 1 
+		1 1 18;
+	setAttr -s 12 ".kot[1:11]"  1 18 18 18 18 18 1 1 
+		1 1 18;
+	setAttr -s 12 ".kix[1:11]"  1 1 1 1 1 1 1 1 1 1 1;
+	setAttr -s 12 ".kiy[1:11]"  0 0 0 0 0 0 0 0 0 0 0;
+	setAttr -s 12 ".kox[1:11]"  1 1 1 1 1 1 1 1 1 1 1;
+	setAttr -s 12 ".koy[1:11]"  0 0 0 0 0 0 0 0 0 0 0;
 createNode animCurveTL -n "pSphere1_translateY";
 	rename -uid "D7A08CB0-8D41-EF05-EEFC-7EA148F6D5CC";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 6.6521127836935001 5 6.1693974960902249
-		 10 4.953813878683734 12 0.95105654001235962 15 0.95105654001235962 20 0.95105654001235962;
+	setAttr -s 12 ".ktv[0:11]"  1 6.6521127836935001 5 7.0960133938278833
+		 45 6.1693974960902249 80 4.953813878683734 110 0.95105654001235962 130 0.95105654001235962
+		 145 0.95105654001235962 160 0.95105654001235962 180 0.95105654001235962 210 4.953813878683734
+		 230 6.1693974960902249 270 7.0960133938278833;
+	setAttr -s 12 ".kit[1:11]"  1 18 18 18 18 18 1 1 
+		1 1 18;
+	setAttr -s 12 ".kot[1:11]"  1 18 18 18 18 18 1 1 
+		1 1 18;
+	setAttr -s 12 ".kix[1:11]"  1 0.82480979947555078 0.46065585835581963 
+		1 1 1 1 1 0.46065585835581963 0.69134264796053546 1;
+	setAttr -s 12 ".kiy[1:11]"  0 -0.56541028880725364 -0.88757883039337016 
+		0 0 0 0 0 -0.88757883039337016 -0.72252705354949509 0;
+	setAttr -s 12 ".kox[1:11]"  1 0.82480979947555055 0.46065585835581963 
+		1 1 1 1 1 0.46065585835581963 0.69134264796053546 1;
+	setAttr -s 12 ".koy[1:11]"  0 -0.56541028880725364 -0.88757883039337027 
+		0 0 0 0 0 -0.88757883039337027 -0.7225270535494952 0;
 createNode animCurveTL -n "pSphere1_translateZ";
 	rename -uid "C72B1D9E-9445-54B1-83C0-DD8876B20996";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 0 5 0 10 0 12 0 15 0 20 0;
+	setAttr -s 12 ".ktv[0:11]"  1 0 5 0 45 0 80 0 110 0 130 0 145 0 160 0
+		 180 0 210 0 230 0 270 0;
+	setAttr -s 12 ".kit[1:11]"  1 18 18 18 18 18 1 1 
+		1 1 18;
+	setAttr -s 12 ".kot[1:11]"  1 18 18 18 18 18 1 1 
+		1 1 18;
+	setAttr -s 12 ".kix[1:11]"  1 1 1 1 1 1 1 1 1 1 1;
+	setAttr -s 12 ".kiy[1:11]"  0 0 0 0 0 0 0 0 0 0 0;
+	setAttr -s 12 ".kox[1:11]"  1 1 1 1 1 1 1 1 1 1 1;
+	setAttr -s 12 ".koy[1:11]"  0 0 0 0 0 0 0 0 0 0 0;
 createNode animCurveTU -n "pSphere1_visibility";
 	rename -uid "3F39D5E8-804A-DC16-18F3-B08787A42F2C";
-	setAttr ".tan" 9;
+	setAttr ".tan" 5;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 1 5 1 10 1 12 1 15 1 20 1;
-	setAttr -s 6 ".kot[0:5]"  5 5 5 5 5 5;
+	setAttr -s 12 ".ktv[0:11]"  1 1 5 1 45 1 80 1 110 1 130 1 145 1 160 1
+		 180 1 210 1 230 1 270 1;
+	setAttr -s 12 ".kit[0:11]"  9 1 9 9 9 9 9 1 
+		1 1 1 9;
+	setAttr -s 12 ".kix[1:11]"  1 1 1 1 1 1 1 1 1 1 1;
+	setAttr -s 12 ".kiy[1:11]"  0 0 0 0 0 0 0 0 0 0 0;
 createNode animCurveTA -n "pSphere1_rotateX";
 	rename -uid "155726EA-3A4E-BE2B-4D47-64997B4719D2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 0 5 0 10 0 12 0 15 0 20 0;
+	setAttr -s 12 ".ktv[0:11]"  1 0 5 0 45 0 80 0 110 0 130 0 145 0 160 0
+		 180 0 210 0 230 0 270 0;
+	setAttr -s 12 ".kit[1:11]"  1 18 18 18 18 18 1 1 
+		1 1 18;
+	setAttr -s 12 ".kot[1:11]"  1 18 18 18 18 18 1 1 
+		1 1 18;
+	setAttr -s 12 ".kix[1:11]"  1 1 1 1 1 1 1 1 1 1 1;
+	setAttr -s 12 ".kiy[1:11]"  0 0 0 0 0 0 0 0 0 0 0;
+	setAttr -s 12 ".kox[1:11]"  1 1 1 1 1 1 1 1 1 1 1;
+	setAttr -s 12 ".koy[1:11]"  0 0 0 0 0 0 0 0 0 0 0;
 createNode animCurveTA -n "pSphere1_rotateY";
 	rename -uid "EF1B0097-9D42-087D-3B68-AF88F64BEF3B";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 0 5 0 10 0 12 0 15 0 20 0;
+	setAttr -s 12 ".ktv[0:11]"  1 0 5 0 45 0 80 0 110 0 130 0 145 0 160 0
+		 180 0 210 0 230 0 270 0;
+	setAttr -s 12 ".kit[1:11]"  1 18 18 18 18 18 1 1 
+		1 1 18;
+	setAttr -s 12 ".kot[1:11]"  1 18 18 18 18 18 1 1 
+		1 1 18;
+	setAttr -s 12 ".kix[1:11]"  1 1 1 1 1 1 1 1 1 1 1;
+	setAttr -s 12 ".kiy[1:11]"  0 0 0 0 0 0 0 0 0 0 0;
+	setAttr -s 12 ".kox[1:11]"  1 1 1 1 1 1 1 1 1 1 1;
+	setAttr -s 12 ".koy[1:11]"  0 0 0 0 0 0 0 0 0 0 0;
 createNode animCurveTA -n "pSphere1_rotateZ";
 	rename -uid "CBD04034-754F-43F4-DD51-73B3B6DF093A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 0 5 0 10 0 12 0 15 0 20 0;
+	setAttr -s 12 ".ktv[0:11]"  1 0 5 0 45 0 80 0 110 0 130 0 145 0 160 0
+		 180 0 210 0 230 0 270 0;
+	setAttr -s 12 ".kit[1:11]"  1 18 18 18 18 18 1 1 
+		1 1 18;
+	setAttr -s 12 ".kot[1:11]"  1 18 18 18 18 18 1 1 
+		1 1 18;
+	setAttr -s 12 ".kix[1:11]"  1 1 1 1 1 1 1 1 1 1 1;
+	setAttr -s 12 ".kiy[1:11]"  0 0 0 0 0 0 0 0 0 0 0;
+	setAttr -s 12 ".kox[1:11]"  1 1 1 1 1 1 1 1 1 1 1;
+	setAttr -s 12 ".koy[1:11]"  0 0 0 0 0 0 0 0 0 0 0;
 createNode animCurveTU -n "pSphere1_scaleX";
 	rename -uid "814E8F84-7748-2603-919A-659F529010AA";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 1 5 0.87261419628494574 10 0.79065051886455517
-		 12 0.76206748866689633 15 1.5383528315929498 20 2.0004705579626108;
+	setAttr -s 12 ".ktv[0:11]"  1 1 5 0.87261419628494574 45 0.87261419628494574
+		 80 0.79065051886455517 110 0.76206748866689633 130 1.5383528315929498 145 2.0004705579626108
+		 160 1.5383528315929498 180 0.76206748866689633 210 0.79065051886455517 230 0.87261419628494574
+		 270 0.87261419628494574;
+	setAttr -s 12 ".kit[1:11]"  1 18 18 18 18 18 1 1 
+		1 1 18;
+	setAttr -s 12 ".kot[1:11]"  1 18 18 18 18 18 1 1 
+		1 1 18;
+	setAttr -s 12 ".kix[1:11]"  1 1 0.9991680156688737 1 0.76224365548332351 
+		1 0.76224365548332362 1 0.9991680156688737 0.99180325046231521 1;
+	setAttr -s 12 ".kiy[1:11]"  0 0 -0.040783286580721334 0 0.64729020514404523 
+		0 0.64729020514404545 0 -0.040783286580721334 -0.12777445899860512 0;
+	setAttr -s 12 ".kox[1:11]"  1 1 0.9991680156688737 1 0.76224365548332362 
+		1 0.76224365548332362 1 0.9991680156688737 0.9918032504623151 1;
+	setAttr -s 12 ".koy[1:11]"  0 0 -0.040783286580721334 0 0.64729020514404523 
+		0 0.64729020514404545 0 -0.040783286580721334 -0.12777445899860512 0;
 createNode animCurveTU -n "pSphere1_scaleY";
 	rename -uid "FF9772A9-0945-5BD6-AF2D-D49AB54A814D";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 1 5 1 10 1.1562562586656342 12 1.2833661024773699
-		 15 0.55906259864987162 20 0.38816992333055794;
+	setAttr -s 12 ".ktv[0:11]"  1 1 5 0.95610637173594304 45 1 80 1.1562562586656342
+		 110 1.2833661024773699 130 0.55906259864987162 145 0.38816992333055794 160 0.55906259864987162
+		 180 1.2833661024773699 210 1.1562562586656342 230 1 270 0.95610637173594304;
+	setAttr -s 12 ".kit[1:11]"  1 18 18 18 18 18 1 1 
+		1 1 18;
+	setAttr -s 12 ".kot[1:11]"  1 18 18 18 18 18 1 1 
+		1 1 18;
+	setAttr -s 12 ".kix[1:11]"  1 0.99795521800833098 0.99457107680878032 
+		1 0.85224200828256591 1 0.85224200828256591 1 0.99457107680878032 1 1;
+	setAttr -s 12 ".kiy[1:11]"  0 0.063916999694484056 0.10405946941736309 
+		0 -0.52314774138717135 0 -0.52314774138717168 0 0.10405946941736309 0 0;
+	setAttr -s 12 ".kox[1:11]"  1 0.99795521800833087 0.99457107680878032 
+		1 0.85224200828256602 1 0.85224200828256591 1 0.99457107680878032 1 1;
+	setAttr -s 12 ".koy[1:11]"  0 0.063916999694484056 0.10405946941736309 
+		0 -0.52314774138717146 0 -0.52314774138717168 0 0.10405946941736309 0 0;
 createNode animCurveTU -n "pSphere1_scaleZ";
 	rename -uid "C1063347-1B43-999C-06A6-C0A60F1DA85A";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
-	setAttr -s 6 ".ktv[0:5]"  1 1 5 0.87261419628494574 10 0.79065051886455517
-		 12 0.76206748866689633 15 1.5383528315929498 20 2.0004705579626108;
+	setAttr -s 12 ".ktv[0:11]"  1 1 5 0.96024692217835794 45 0.87261419628494574
+		 80 0.79065051886455517 110 0.76206748866689633 130 1.5383528315929498 145 2.0004705579626108
+		 160 1.5383528315929498 180 0.76206748866689633 210 0.79065051886455517 230 0.87261419628494574
+		 270 0.96024692217835794;
+	setAttr -s 12 ".kit[1:11]"  1 18 18 18 18 18 1 1 
+		1 1 18;
+	setAttr -s 12 ".kot[1:11]"  1 18 18 18 18 18 1 1 
+		1 1 18;
+	setAttr -s 12 ".kix[1:11]"  1 0.998530582609503 0.9991680156688737 
+		1 0.76224365548332351 1 0.76224365548332362 1 0.9991680156688737 0.99180325046231521 
+		1;
+	setAttr -s 12 ".kiy[1:11]"  0 -0.05419110253101047 -0.040783286580721334 
+		0 0.64729020514404523 0 0.64729020514404545 0 -0.040783286580721334 -0.12777445899860512 
+		0;
+	setAttr -s 12 ".kox[1:11]"  1 0.998530582609503 0.9991680156688737 
+		1 0.76224365548332362 1 0.76224365548332362 1 0.9991680156688737 0.9918032504623151 
+		1;
+	setAttr -s 12 ".koy[1:11]"  0 -0.05419110253101047 -0.040783286580721334 
+		0 0.64729020514404523 0 0.64729020514404545 0 -0.040783286580721334 -0.12777445899860512 
+		0;
 createNode script -n "uiConfigurationScriptNode";
 	rename -uid "33CB232E-4042-2A62-5FBC-9AAFD321354D";
 	setAttr ".b" -type "string" (
@@ -209,11 +317,11 @@ createNode script -n "uiConfigurationScriptNode";
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
 	rename -uid "76BEBAC5-9342-7D28-6DCA-5AB46124C769";
-	setAttr ".b" -type "string" "playbackOptions -min 2 -max 120 -ast 2 -aet 200 ";
+	setAttr ".b" -type "string" "playbackOptions -min 2 -max 275 -ast 2 -aet 275 ";
 	setAttr ".st" 6;
 select -ne :time1;
-	setAttr ".o" 7;
-	setAttr ".unw" 7;
+	setAttr ".o" 261;
+	setAttr ".unw" 261;
 select -ne :hardwareRenderingGlobals;
 	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
